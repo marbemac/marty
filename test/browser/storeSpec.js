@@ -23,7 +23,7 @@ describe('Store', function () {
 
     expectedError = new Error('foo');
 
-    store = new Store({
+    store = Marty.createStore({
       id: 'test',
       displayName: 'Test',
       dispatcher: dispatcher,
@@ -55,7 +55,7 @@ describe('Store', function () {
     logger.restore();
   });
 
-  it('should have a dispatch token', function () {
+  it.only('should have a dispatch token', function () {
     expect(store.dispatchToken).to.equal(dispatchToken);
   });
 

@@ -12,7 +12,7 @@ test-server:
 test-browser:
 	@./build/test-browser.sh
 
-test-watch: lint
+test-watch:
 	@./build/test-watch.sh
 
 bootstrap: bootstrap-js bootstrap-ruby
@@ -25,15 +25,15 @@ bootstrap-ruby: docs/Gemfile
 	@cd docs && bundle install
 
 lint: bootstrap-js
-	@$(BIN)/jsxcs $(SRC);
-	@$(BIN)/jsxhint $(SRC);
+	@$(BIN)/jscs --esprima=esprima-fb $(SRC);
+	@$(BIN)/jsxhint --babel $(SRC);
 
 release: test
 	@inc=$(inc) sh ./build/release.sh
 
 build: lint
 	@mkdir -p dist
-	@$(BIN)/browserify --require ./index.js  --standalone Marty > dist/marty.js
+	@$(BIN)/browserify --transform babelify --require ./index.js  --standalone Marty > dist/marty.js
 	@cat dist/marty.js | $(BIN)/uglifyjs > dist/marty.min.js
 	@gzip dist/marty.min.js -c > dist/marty.min.js.gz
 

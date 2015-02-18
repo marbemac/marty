@@ -1,8 +1,10 @@
+require("babelify/polyfill");
 require('es6-promise').polyfill();
 
 var _ = require('underscore');
 var state = require('./lib/state');
 var create = require('./lib/create');
+var classes = require('./lib/classes');
 var dispose = require('./lib/dispose');
 var Container = require('./lib/container');
 var Diagnostics = require('./lib/diagnostics');
@@ -18,7 +20,7 @@ function createInstance() {
     __events: new EventEmitter(),
     renderToString: renderToString,
     createInstance: createInstance
-  }, state, create);
+  }, state, create, classes);
 }
 
 module.exports = createInstance();
