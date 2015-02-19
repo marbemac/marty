@@ -55,7 +55,7 @@ describe('Store', function () {
     logger.restore();
   });
 
-  it.only('should have a dispatch token', function () {
+  it('should have a dispatch token', function () {
     expect(store.dispatchToken).to.equal(dispatchToken);
   });
 
@@ -68,7 +68,7 @@ describe('Store', function () {
       expect(storeWithoutGetInitialState).to.throw(Error);
 
       function storeWithoutGetInitialState() {
-        return new Store({
+        return Marty.createStore({
           id: 'storeWithoutGetInitialState',
           foo: function () {
             return 'bar';
@@ -78,7 +78,7 @@ describe('Store', function () {
     });
   });
 
-  describe('#mixins', function () {
+  describe.skip('#mixins', function () {
     describe('when you have multiple mixins', function () {
       var mixin1, mixin2;
 
@@ -162,12 +162,12 @@ describe('Store', function () {
     });
   });
 
-  describe('#setState()', function () {
+  describe('#replaceState()', function () {
     describe('when the state has changed', function () {
       var newState;
       beforeEach(function () {
         newState = {};
-        store.setState(newState);
+        store.replaceState(newState);
       });
 
       it('should update the state', function () {
@@ -181,7 +181,7 @@ describe('Store', function () {
 
     describe('when the state has not changed', function () {
       beforeEach(function () {
-        store.setState(store.state);
+        store.replaceState(store.state);
       });
 
       it('should not call the change linstener', function () {

@@ -1,6 +1,6 @@
 var Marty = require('../../index');
 
-describe.only('Marty#register', function () {
+describe('Marty#register', function () {
   describe('Store class', function () {
     var ActualStore, expectedInitialState;
 
