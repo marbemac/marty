@@ -1,6 +1,6 @@
 {
   "name": "marty",
-  "version": "0.8.12",
+  "version": "0.8.15",
   "description": "A Javascript library for state management in React applications",
   "main": "index.js",
   "directories": {
@@ -19,7 +19,6 @@
     "flux"
   ],
   "devDependencies": {
-    "babelify": "^5.0.3",
     "bluebird": "^2.3.11",
     "body-parser": "^1.9.3",
     "browserify": "^5.12.0",
@@ -43,11 +42,11 @@
     "mocha": "^1.21.4",
     "mocha-spec-cov": "0.0.3",
     "react": "^0.12.0",
+    "reactify": "^0.14.0",
     "sinon": "^1.10.3",
     "sinon-chai": "^2.5.0",
     "uglify-js": "^2.4.15",
     "jquery": "^2.1.1",
-    "react-router": "^0.11.4",
     "semver": "^4.2.0"
   },
   "author": "James Hollingworth",
@@ -62,7 +61,7 @@
   },
   "browserify": {
     "transform": [
-      "babelify"
+      "reactify"
     ]
   },
   "homepage": "https://martyjs.org",
@@ -70,6 +69,7 @@
     "es6-promise": "^2.0.0",
     "flux": "^2.0.1",
     "isomorphic-fetch": "1.6.0",
+    "reactify": "^1.0.0",
     "underscore": "^1.7.0"
   }
 }

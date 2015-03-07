@@ -86,7 +86,7 @@ module.exports = function (config) {
   function local() {
     return _.extend(base(), {
       reporters: ['spec'],
-      browsers: ['Chrome'],
+      browsers: ['ChromeCanary'],
       autoWatch: true,
       singleRun: false,
       colors: true
@@ -98,7 +98,7 @@ module.exports = function (config) {
       basePath: '',
       frameworks: ['mocha', 'browserify'],
       browserify: {
-        transform: ['babelify'],
+        transform: ['reactify'],
         debug: true
       },
       files: [
